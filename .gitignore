@@ -1,6 +1,8 @@
 token.conf
 R/my_voice.csv
 R/voice.wav
+R/.RData
+R/.Rhistory
 voice.ogg
 voice.wav
 my_voice.csv
