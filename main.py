@@ -20,8 +20,9 @@ logger = logging.getLogger(__name__)
 
 # load model
 svc = pickle.load(open("models_trained/svc_model.sav", 'rb'))
-pca = pickle.load(open("models_trained/pca.sav", 'rb'))
-norm = Normalizer(norm='l2')
+# svc = pickle.load(open("models_trained/normed_svc_model.sav", 'rb'))
+# pca = pickle.load(open("models_trained/pca.sav", 'rb'))
+# norm = Normalizer(norm='l2')
 
 def start(bot, update):
   update.message.reply_text('Hi! Send me a vocal message and I tell you if you are "male" or "female"!')
@@ -44,10 +45,10 @@ def predict(bot, update):
   sample = open("my_voice.csv", "r").read().split("\n")[1].split(",")
   sample = [sample]
 
-  sample = norm.transform(np.float64(sample))
-  sample = pca.transform(np.float64(sample))
+  # sample = norm.transform(np.float64(sample))
+  # sample = pca.transform(np.float64(sample))
 
-  if int(svc.predict(sample)) == 0:
+  if int(svc.predict(sample)[0]) == 0:
     update.message.reply_text("You are male!")
   else:
     update.message.reply_text("You are female!")

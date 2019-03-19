@@ -1,0 +1,4 @@
+telegram
+python-telegram-bot
+pydub
+scikit-learn
