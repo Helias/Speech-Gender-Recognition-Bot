@@ -59,3 +59,4 @@ Enjoy!
 ## Credits
 
 - **[Helias](https://github.com/Helias)**
+- **[Valentjno](https://github.com/Valentjno)**
