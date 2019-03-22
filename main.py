@@ -19,8 +19,9 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 # load model
-svc = pickle.load(open("models_trained/svc_model.sav", 'rb'))
-# svc = pickle.load(open("models_trained/normed_svc_model.sav", 'rb'))
+svc = pickle.load(open("models_trained/svc.sav", 'rb'))
+lr = pickle.load(open("models_trained/lr.sav", 'rb'))
+# svc = pickle.load(open("models_trained/normed_svc.sav", 'rb'))
 # pca = pickle.load(open("models_trained/pca.sav", 'rb'))
 # norm = Normalizer(norm='l2')
 
@@ -48,10 +49,22 @@ def predict(bot, update):
   # sample = norm.transform(np.float64(sample))
   # sample = pca.transform(np.float64(sample))
 
+  text = ""
   if int(svc.predict(sample)[0]) == 0:
-    update.message.reply_text("You are male!")
+    # update.message.reply_text("You are male!")
+    text += "for **SVC** you are: **male**"
   else:
-    update.message.reply_text("You are female!")
+    # update.message.reply_text("You are female!")
+    text += "for **SVC** you are: **female**"
+
+  text += "\n"
+
+  if int(lr.predict(np.float64(sample))[0]) == 0:
+    text += "for **LR** you are: **male**"
+  else:
+    text += "for **LR** you are: **female**"
+  update.message.reply_text("We apply two algorithms:\n"+text, parse_mode='Markdown')
+
 
 def main():
   updater = Updater(TOKEN)
