@@ -52,18 +52,18 @@ def predict(bot, update):
   text = ""
   if int(svc.predict(sample)[0]) == 0:
     # update.message.reply_text("You are male!")
-    text += "for **SVC** you are: **male**"
+    text += "for <b>SVC</b> you are <b>male</b>"
   else:
     # update.message.reply_text("You are female!")
-    text += "for **SVC** you are: **female**"
+    text += "for <b>SVC</b> you are <b>female</b>"
 
   text += "\n"
 
   if int(lr.predict(np.float64(sample))[0]) == 0:
-    text += "for **LR** you are: **male**"
+    text += "for <b>LR</b> you are <b>male</b>"
   else:
-    text += "for **LR** you are: **female**"
-  update.message.reply_text("We apply two algorithms:\n"+text, parse_mode='Markdown')
+    text += "for <b>LR</b> you are <b>female</b>"
+  update.message.reply_text("We apply two algorithms:\n"+text, parse_mode='HTML')
 
 
 def main():
