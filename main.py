@@ -19,9 +19,9 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 # load model
-svc = pickle.load(open("models_trained/svc.sav", 'rb'))
+svm = pickle.load(open("models_trained/svm.sav", 'rb'))
 lr = pickle.load(open("models_trained/lr.sav", 'rb'))
-# svc = pickle.load(open("models_trained/normed_svc.sav", 'rb'))
+# svm = pickle.load(open("models_trained/normed_svm.sav", 'rb'))
 # pca = pickle.load(open("models_trained/pca.sav", 'rb'))
 # norm = Normalizer(norm='l2')
 
@@ -50,12 +50,12 @@ def predict(bot, update):
   # sample = pca.transform(np.float64(sample))
 
   text = ""
-  if int(svc.predict(sample)[0]) == 0:
+  if int(svm.predict(sample)[0]) == 0:
     # update.message.reply_text("You are male!")
-    text += "for <b>SVC</b> you are <b>male</b>"
+    text += "for <b>SVM</b> you are <b>male</b>"
   else:
     # update.message.reply_text("You are female!")
-    text += "for <b>SVC</b> you are <b>female</b>"
+    text += "for <b>SVM</b> you are <b>female</b>"
 
   text += "\n"
 
