@@ -28,9 +28,6 @@ lr = pickle.load(open("models_trained/lr.sav", 'rb'))
 def start(bot, update):
   update.message.reply_text('Hi! Send me a vocal message and I tell you if you are "male" or "female"!')
 
-def echo(bot, update):
-  update.message.reply_text(update.message.text)
-
 def predict(bot, update):
   file_id = update.message.voice.file_id
   new_file = bot.get_file(file_id)
