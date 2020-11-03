@@ -40,6 +40,8 @@ Afterwards you can install the packages with:
 $ R
 $ install.packages("tuneR")
 $ install.packages("seewave")
+$ install.packages("pbapply")
+$ install.packages("fftw")
 ```
 
 ## Usage
