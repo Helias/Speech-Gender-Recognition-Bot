@@ -12,8 +12,7 @@ This project is based on [this](https://github.com/Valentjno/SpeechGenderRecogni
 ## Requirements
 
 If you want to install locally this bot, it requires:
-
-**Python3** and the follow dependencies:
+**Python3.6** (numpy do not officially support python 3.8) and the follow dependencies:
 
 - telegram
 - python-telegram-bot
