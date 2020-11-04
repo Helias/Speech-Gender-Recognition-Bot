@@ -28,10 +28,10 @@ $ pip3 install -r requirements.txt
 - tuneR
 - seewave
 
-In a debian-based you can install R and tuneR dependencies with:
+In a debian-based you can install ffmpeg, R and tuneR dependencies with:
 ```
 $ sudo apt install r-base
-$ sudo apt install gfortran libsndfile1-dev libfftw3-dev
+$ sudo apt install gfortran libsndfile1-dev libfftw3-dev ffmpeg
 ```
 
 Afterwards you can install the packages with:
@@ -39,6 +39,8 @@ Afterwards you can install the packages with:
 $ R
 $ install.packages("tuneR")
 $ install.packages("seewave")
+$ install.packages("pbapply")
+$ install.packages("fftw")
 ```
 
 ## Usage
